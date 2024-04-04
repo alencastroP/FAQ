@@ -1,9 +1,9 @@
-let topicos = []
-const endpointDaAPI = './requisicao.json'
-getBuscarTopicosDaAPI()
+let topics = [];
+const endpointAPI = './requisicao.json';
+getSearchTopics()
 
-async function getBuscarTopicosDaAPI() {
-    const res = await fetch(endpointDaAPI)
-    topicos = await res.json()
-    inserirTopicos(topicos)
+async function getSearchTopics() {
+    const res = await fetch(endpointAPI);
+    topics = await res.json();
+    insertTopics(topics);
 }

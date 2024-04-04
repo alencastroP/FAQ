@@ -38,7 +38,7 @@ body {
     padding-right: 0.5em;
 }
 
-.titulo {
+.title {
     text-align: left;
     font-family: 'WorkSans-Bold';
     font-size: 4.5em;
@@ -46,40 +46,9 @@ body {
     text-shadow: 1.8px 1.8px 1.8px gray;
 }
 
-.topicos {
-    padding: 2em 0em 1.2em 0em;
-    border-bottom: 0.5px solid lightgrey;
-}
-
-.topico-titulo{
-    text-align: left; 
-    font-family: 'WorkSans-Bold';
-    font-size: 1em;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-.topico-conteudo{
-    display: none;
-    text-align: left; 
-    font-family: 'WorkSans-Regular';
-    letter-spacing: 0.5px;
-    color: gray;
-    font-size: 0.8em;
-    padding: 10px 10px 0px 0px;
-    line-height: 1.4;
-}
-
-.botao {
-    width: 22px;
-    height: auto;
-    float: right;
-    cursor: pointer;
-    vertical-align: middle;
-}
-
 .search {
     margin-top: 5%;
+    position: relative;
     width: 100%;
     padding: 3% 3% 3% 3%;
     font-size: 1em;
@@ -91,40 +60,79 @@ body {
     cursor: pointer;
 }
 
+.search-icon{
+    position: relative; 
+    right: 1em;
+    bottom: 41px; 
+    width: 27px; 
+    opacity: 10%;
+    cursor: pointer;
+    height: auto;
+    float: right;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.topics {
+    padding: 2em 0em 1.2em 0em;
+    border-bottom: 0.5px solid lightgrey;
+}
+
+.topic-title{
+    text-align: left; 
+    font-family: 'WorkSans-Bold';
+    font-size: 1em;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.topic-content{
+    display: none;
+    text-align: left; 
+    font-family: 'WorkSans-Regular';
+    letter-spacing: 0.5px;
+    color: gray;
+    font-size: 0.8em;
+    padding: 10px 10px 0px 0px;
+    line-height: 1.4;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25px;
+    height: auto;
+    float: right;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
 /* .botao-pesquisa{
-    background-color: var(--cinza-claro);
-    border: 0px;
-    border-radius: 0px 32px 32px 0px;
     padding: 8px;
     padding-right: 15px;
     border-left: none;
     cursor: pointer;
-}
-
-.lupa-pesquisa {
-    height: auto;
-    width: 2em;
-    vertical-align: middle;
-    margin-right: 5px;
 } */
 
 
 @media (min-width: 768px) {
-    .imagem-desktop {
+    .desktop-img {
         display: block;
         width: 100%;
     }
-    .imagem-mobile {
+    .mobile-img {
         display: none;
     }
 
 }
 
 @media (max-width: 768px) {
-    .imagem-desktop {
+    .desktop-img {
         display: none;
     }
-    .imagem-mobile {
+    .mobile-img {
         display: block;
         width: 100%;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -145,7 +153,7 @@ body {
         padding-right: 0.8em;
     }
     
-    .titulo {
+    .title {
         text-align: left;
         font-family: 'WorkSans-Bold';
         font-size: 2.5em;
@@ -153,19 +161,42 @@ body {
         text-shadow: 0.5px 0.5px 0.5px gray;
     }
 
-    .topico-titulo{
+    .topic-title{
         text-align: left; 
         font-family: 'WorkSans-Bold';
         font-size: 1em;
         line-height: 1.5;
+        white-space: normal;
+        overflow: hidden;
         overflow-wrap: break-word;
+        margin-right: 10px;
     }
 
-    .botao {
+
+    .button {
         width: 2em;
         height: auto;
         float: right;
         cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .search-icon{
+        position: relative; 
+        right: 1em;
+        bottom: 41px; 
+        width: 27px; 
+        opacity: 10%;
+        cursor: pointer;
+        height: auto;
+        float: right;
+        cursor: pointer;
+        vertical-align: middle;
+        top:auto;
     }
 
     :root {

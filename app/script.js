@@ -1,63 +1,58 @@
-const elementoTopicos  = document.getElementById('topicos')
-const botaoExpandir = document.querySelectorAll('.botao')
-const conteudoTopico = document.querySelectorAll('.topico-conteudo')
+const topicsElement  = document.getElementById('topics');
+const expandButton = document.querySelectorAll('.button');
+const topicContent = document.querySelectorAll('.topic-content');
 
-async function inserirTopicos(listaDeTopicos) {
-    elementoTopicos.innerHTML = ''
-    listaDeTopicos.forEach(topicos => {
-        elementoTopicos.innerHTML += `
-            <div class="topicos">
-            <h3 class="topico-titulo">${topicos.titulo}<img src="./icons/icon-plus.svg" class="botao"></h3>
-            <p class="topico-conteudo">${topicos.conteudo}</p>
+async function insertTopics(topicsList) {
+    topicsElement.innerHTML = ''
+    topicsList.forEach(topics => {
+        topicsElement.innerHTML += `
+            <div class="topics">
+            <h3 class="topic-title">${topics.title}<img src="./icons/icon-plus.svg" class="button"></h3>
+            <p class="topic-content">${topics.content}</p>
             </div>
         `         
     })
 };
 
-//Expandir botão
+//Expand buttons
 
-elementoTopicos.addEventListener("click", (event) => { 
-    if (event.target.classList.contains('botao')){
-        const topico = event.target.closest('.topicos');
-        const conteudo = topico.querySelector('.topico-conteudo');
-        const botaoImg = topico.querySelector('img');
-            
-        console.log(botaoImg)
+topicsElement.addEventListener("click", (event) => { 
+    if (event.target.classList.contains('button')){
+        const topic = event.target.closest('.topics');
+        const content = topic.querySelector('.topic-content');
+        const imgButton = topic.querySelector('img');
 
-        if(conteudo.classList.toggle('expandido')){
-            conteudo.style.display = "block";
-            botaoImg.src = "./icons/icon-minus.svg";
+        if(content.classList.toggle('expandido')){
+            content.style.display = "block";
+            imgButton.src = "./icons/icon-minus.svg";
         }else{
-            conteudo.style.display = "none";
-            botaoImg.src = "./icons/icon-plus.svg";
+            content.style.display = "none";
+            imgButton.src = "./icons/icon-plus.svg";
         }
-
-        console.log(topico)
     }});
     
+//Search functions
 
-//Função de pesquisa
+const searchBar = document.querySelector(".search");
 
-const barraDePesquisa = document.querySelector(".search");
+searchBar.addEventListener("input", filterSearch);
 
-barraDePesquisa.addEventListener("input", filtrarPesquisa);
+function filterSearch(){
+    const topics = document.querySelectorAll(".topics");
 
-function filtrarPesquisa(){
-    const topicos = document.querySelectorAll(".topicos")
+    if(searchBar.value != "" && searchBar.value != null){
+        for(let topic of topics){
+            let title = topic.querySelector(".topic-title").textContent.toLowerCase();
+            let filterValue = searchBar.value.toLowerCase();
 
-    if(barraDePesquisa.value != "" && barraDePesquisa.value != null){
-        for(let topico of topicos){
-            let titulo = topico.querySelector(".topico-titulo").textContent.toLowerCase();
-            let valorFiltro = barraDePesquisa.value.toLowerCase();
-
-            if(!titulo.includes(valorFiltro)){
-                topico.style.display = "none";
+            if(!title.includes(filterValue)){
+                topic.style.display = "none";
             }else{
-                topico.style.display = "block";
+                topic.style.display = "block";
             }
         }
     }else{
-        topicos.style.display = "block";
+        topics.style.display = "block";
     }
 }
 
